@@ -1,8 +1,9 @@
 ## Usage
-* Write down function's expected behavior via doc string.
-* Use gpt_caller() decorator on the function.
-* Call gpt function as reuglar python function.
-* :warning: gpt function hallucinates from time to time due to it's natural. Use them at at your own risk!
+* Specify expected behavior via python function doc string. Use `gpt_caller()` decorator on the function to indicate a gpt function.
+* Uses `gpt-3.5-turbo` by default. You can also use switch to other models like `gpt-4` via `gpt_caller(model="gpt-4")`
+* Call gpt functions as reuglar python functions.
+* :warning: gpt functions could hallucinate due to its natural. Use them at your own risk!
+* :rocket: unlock maximum potential by utilizing GPT functions and GitHub Copilot together.
 
 ## Example
 
@@ -31,8 +32,10 @@ def get_US_states() -> list[dict]:
     pass
 
 states = get_US_states()
+
 for state in states:
     print(state["name"], state["abbreviation"], state["capital"])
+
 ```
 
 ## Installation
@@ -43,4 +46,5 @@ pip install -r requirements.txt
 ```
 
 ## Extra
-* The idea is inspired by the Recurrency Hackathon
+
+* The idea is inspired from [Recurrency](https://www.recurrency.com/) AI Hackathon

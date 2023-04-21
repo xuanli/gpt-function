@@ -38,7 +38,7 @@ def run_gpt_function(func: callable,
     2. Function description: {description.strip()}.
     3. Act as {func_name} and respond with json.dumps(<return value>) based on given arguments.
     4. Think step by step and explain your reasoning.
-    5. Reflect and critize your answer before you respond.
+    5. Reflect and criticize your answer before you respond.
     6. Output JSON format:
     {{
         "thought": <thoughts>,
