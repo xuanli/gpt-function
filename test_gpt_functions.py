@@ -36,10 +36,13 @@ def test_summary_text():
     result = summary_text(input)
     assert len(result) > 0 and len(result) < len(input)
 
-@gpt_caller()
-def get_US_states() -> list[dict]:
-    """Return a list of all US states
-    
+@gpt_caller(model="gpt-3.5-turbo")
+def get_US_states(region: str = "All") -> list[dict]:
+    """Return a list of dictionaries containing the name, abbreviation, and capital of each US state filtered by region.
+
+    Parameters:
+        region (str): The region of the US states to return. eg: "West_Coast"
+
     Returns:
         list[dict]: A list of dictionaries containing the name, abbreviation, and capital of each US state. eg:
         [
@@ -54,7 +57,18 @@ def get_US_states() -> list[dict]:
     pass
     
 
-def test_get_all_US_states():
-    states = get_US_states()
-    assert len(states) == 50
+def test_get_US_states():
+    
+    states = get_US_states(region="West_Coast_Mainland")
+    assert states
+    assert len(states) == 3 #California, Oregon, Washington
     assert "name" in states[0] and "abbreviation" in states[0] and "capital" in states[0]
+    
+
+def run_all_test():
+    test_add_function()
+    test_summary_text()
+    test_get_US_states()
+    
+if __name__ == "__main__":
+    run_all_test()

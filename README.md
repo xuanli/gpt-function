@@ -15,9 +15,14 @@ from gpt_function import gpt_caller
 #set your openai api key
 openai.api_key = os.environ.get("OPENAI_API_KEY") or ""
 
+#declare the function and expected behavior
 @gpt_caller()
-def get_US_states() -> list[dict]:
-    """Get a list of all US states
+def get_US_states(region: str = "All") -> list[dict]:
+    """Return a list of dictionaries containing the name, abbreviation, and capital of each US state filtered by region.
+
+    Parameters:
+        region (str): The region of the US states to return. eg: "West_Coast"
+
     Returns:
         list[dict]: A list of dictionaries containing the name, abbreviation, and capital of each US state. eg:
         [
@@ -31,9 +36,10 @@ def get_US_states() -> list[dict]:
     """
     pass
 
-states = get_US_states()
+#use the gpt function as regular python function
+states = get_US_states(region="West_Coast_Mainland") 
 
-for state in states:
+for state in states: # California, Oregon, Washington
     print(state["name"], state["abbreviation"], state["capital"])
 
 ```
