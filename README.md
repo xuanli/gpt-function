@@ -1,7 +1,7 @@
 ## Usage
 * Specify expected behavior via python function doc string. Use `gpt_caller()` decorator on the function to indicate a gpt function.
 * Uses `gpt-3.5-turbo` by default. You can also use switch to other models like `gpt-4` via `gpt_caller(model="gpt-4")`
-* Call gpt functions as reuglar python functions.
+* Call gpt functions as regular python functions.
 * :warning: gpt functions could hallucinate due to its natural. Use them at your own risk!
 * :rocket: unlock maximum potential by utilizing GPT functions and GitHub Copilot together.
 
